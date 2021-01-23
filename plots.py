@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import matplotlib as mpl
+mpl.rcParams['savefig.dpi'] = 300
 plt.close("all")
 ion_data = pd.read_csv("trapped ions.csv")
 supercond_data = pd.read_csv("superconducting.csv")
@@ -63,12 +65,12 @@ style_list = [ion_style, supercond_style, rydberg_style, diamond_style, silicon_
 label_list = ["Trapped ions", "Superconducting", "Rydberg atoms", "Spins in diamond", "Qubits in silicon"]
 
 
-plot_combined(data_list, style_list,label_list,"combined.pdf")
-plot_combined(data_list[0:2], style_list[0:2],label_list[0:2],"ions_vs_supercond.pdf",annotate=True)
+plot_combined(data_list, style_list,label_list,"combined.png")
+plot_combined(data_list[0:2], style_list[0:2],label_list[0:2],"ions_vs_supercond.png",annotate=True)
 
-plot_single(ion_data,ion_style,"Trapped ions 2-qubit entanglement errors","ions.pdf")
-plot_single(supercond_data,supercond_style,"Superconducting 2-qubit entanglement errors","superconducting.pdf")
-plot_single(rydberg_data,rydberg_style,"Rydberg 2-qubit entanglement errors","rydbergs.pdf")
-plot_single(diamond_data,diamond_style,"Spins in diamond 2-qubit entanglement errors","diamond.pdf")
-plot_single(silicon_data,silicon_style,"In-silicon 2-qubit entanglement errors","silicon.pdf")
+plot_single(ion_data,ion_style,"Trapped ions 2-qubit entanglement errors","ions.png")
+plot_single(supercond_data,supercond_style,"Superconducting 2-qubit entanglement errors","superconducting.png")
+plot_single(rydberg_data,rydberg_style,"Rydberg 2-qubit entanglement errors","rydbergs.png")
+plot_single(diamond_data,diamond_style,"Spins in diamond 2-qubit entanglement errors","diamond.png")
+plot_single(silicon_data,silicon_style,"In-silicon 2-qubit entanglement errors","silicon.png")
 
