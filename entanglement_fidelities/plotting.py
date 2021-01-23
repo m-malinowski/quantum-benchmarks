@@ -2,13 +2,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import matplotlib as mpl
-mpl.rcParams['savefig.dpi'] = 300
+mpl.rcParams['savefig.dpi'] = 200
 plt.close("all")
-ion_data = pd.read_csv("trapped ions.csv")
-supercond_data = pd.read_csv("superconducting.csv")
-rydberg_data = pd.read_csv("rydbergs.csv")
-diamond_data = pd.read_csv("diamond.csv")
-silicon_data = pd.read_csv("silicon.csv")
+ion_data = pd.read_csv("entanglement_fidelities/data/trapped_ions.csv")
+supercond_data = pd.read_csv("entanglement_fidelities/data/superconducting.csv")
+rydberg_data = pd.read_csv("entanglement_fidelities/data/rydbergs.csv")
+diamond_data = pd.read_csv("entanglement_fidelities/data/diamond.csv")
+silicon_data = pd.read_csv("entanglement_fidelities/data/silicon.csv")
 color_list = plt.rcParams['axes.prop_cycle'].by_key()['color']
 y_max = 1
 y_min=1e-4
@@ -65,12 +65,12 @@ style_list = [ion_style, supercond_style, rydberg_style, diamond_style, silicon_
 label_list = ["Trapped ions", "Superconducting", "Rydberg atoms", "Spins in diamond", "Qubits in silicon"]
 
 
-plot_combined(data_list, style_list,label_list,"combined.png")
-plot_combined(data_list[0:2], style_list[0:2],label_list[0:2],"ions_vs_supercond.png",annotate=True)
+plot_combined(data_list, style_list,label_list,"plots/combined.png")
+plot_combined(data_list[0:2], style_list[0:2],label_list[0:2],"plots/ions_vs_supercond.png",annotate=True)
 
-plot_single(ion_data,ion_style,"Trapped ions 2-qubit entanglement errors","ions.png")
-plot_single(supercond_data,supercond_style,"Superconducting 2-qubit entanglement errors","superconducting.png")
-plot_single(rydberg_data,rydberg_style,"Rydberg 2-qubit entanglement errors","rydbergs.png")
-plot_single(diamond_data,diamond_style,"Spins in diamond 2-qubit entanglement errors","diamond.png")
-plot_single(silicon_data,silicon_style,"In-silicon 2-qubit entanglement errors","silicon.png")
+plot_single(ion_data,ion_style,"Trapped ions 2-qubit entanglement errors","entanglement_fidelities/plots/ions.png")
+plot_single(supercond_data,supercond_style,"Superconducting 2-qubit entanglement errors","entanglement_fidelities/plots/superconducting.png")
+plot_single(rydberg_data,rydberg_style,"Rydberg 2-qubit entanglement errors","entanglement_fidelities/plots/rydbergs.png")
+plot_single(diamond_data,diamond_style,"Spins in diamond 2-qubit entanglement errors","entanglement_fidelities/plots/diamond.png")
+plot_single(silicon_data,silicon_style,"In-silicon 2-qubit entanglement errors","entanglement_fidelities/plots/silicon.png")
 
