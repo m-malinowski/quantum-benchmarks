@@ -13,16 +13,10 @@ I welcome contributions from everybody, which are particularly essential for the
 ## 2-qubit entanglement fidelities
 Main page: [entanglement fidelities](entanglement_fidelities/summary.md).
 
-The repo contains plots, data sources and citations.
-
 Examples:
 
 
-Full cross-platform comparison
-
 ![](entanglement_fidelities/plots/combined.png)
-
-Comparison of trapped ions and superconducting qubits
 
 ![](entanglement_fidelities/plots/ions_vs_supercond.png)
 
