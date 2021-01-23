@@ -16,11 +16,11 @@ This is th first benchmark on this site (hopefully many more to come!). All the 
 ## Cross-platform comparisons
 The best measured entanglement fidelities across different platforms:
 
-![](combined.png)
+![](entanglement_fidelities/plots/combined.png)
 
 Comparison of trapped ion and superconducting qubit performance
 
-![](ions_vs_supercond.png)
+![](entanglement_fidelities/plots/ions_vs_supercond.png)
 
 ## Individual platforms
 
@@ -28,7 +28,7 @@ All platforms individually, annotated with the place where the result was obtain
 
 ### Trapped ions
 
-![](ions.png)
+![](entanglement_fidelities/plots/ions.png)
 
 | Year | Error  | Uncertainty | Place     | Method | Citation       | 
 |------|--------|-------------|-----------|--------|----------------| 
@@ -39,7 +39,7 @@ All platforms individually, annotated with the place where the result was obtain
 | 2016 | 0.001  | 0.001       | Oxford    | Bell   | Ballance2016   |
 
 ### Superconducintg qubits
-![](superconducting.png)
+![](entanglement_fidelities/plots/superconducting.png)
 
 | Year | Error  | Uncertainty | Place | Method       | Citation       | 
 |------|--------|-------------|-------|--------------|----------------| 
@@ -51,7 +51,7 @@ All platforms individually, annotated with the place where the result was obtain
 
 
 ### Rydberg atoms
-![](rydbergs.png)
+![](entanglement_fidelities/plots/rydbergs.png)
 | Year | Error | Uncertainty | Place      | Method | Citation     | 
 |------|-------|-------------|------------|--------|--------------| 
 | 2010 | 0.42  | 0.04        | Madison    | Bell   | Zhang2010    | 
@@ -62,7 +62,7 @@ All platforms individually, annotated with the place where the result was obtain
 
 ### Spins in diamond
 
-![](diamond.png)
+![](entanglement_fidelities/plots/diamond.png)
 
 | Year | Error | Uncertainty | Place     | Method         | Citation  | 
 |------|-------|-------------|-----------|----------------|-----------| 
@@ -73,7 +73,7 @@ All platforms individually, annotated with the place where the result was obtain
 
 ### Qubits in silicon
 
-![](silicon.png)
+![](entanglement_fidelities/plots/silicon.png)
 
 | Year | Error | Uncertainty | Place  | Method       | Citation | 
 |------|-------|-------------|--------|--------------|----------| 
