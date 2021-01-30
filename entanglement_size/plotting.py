@@ -16,6 +16,11 @@ x_max = 2023 #adjust to get labels to fit
 x_min = 1998
 offset = 2
 
+# Flag controversial data
+#flag_list = ['Mooney2021']
+flag_list = []
+flagged_marker = r'$?$'
+
 
 ion_style = {"color":color_list[0]}
 supercond_style = {"color":color_list[1]}
@@ -27,8 +32,15 @@ multi_dof_photon_style = {"color":color_list[6]}
 
 
 def plot_single(data,style,title,filename,annotate=True):
-    ax = data.plot(x="Year", y="Number",
-                        kind="scatter", logy=False, s=50, **style);
+    data_good = data[~data['Citation'].isin(flag_list)]
+    data_flagged = data[data['Citation'].isin(flag_list)]
+    ax = data_good.plot(x="Year", y="Number",
+                        kind="scatter", logy=False, s=50,
+                         **style);
+    if len(data_flagged)>0:
+           ax = data_flagged.plot(ax = ax, x="Year", y="Number",
+                        kind="scatter", logy=False, s=50, marker=flagged_marker,
+                        **style); 
     ax.set_ylim(y_min,y_max)
     ax.set_xlim(data["Year"].min()-offset,x_max)
     ax.set_title(title)
@@ -44,8 +56,14 @@ def plot_single(data,style,title,filename,annotate=True):
 def plot_combined(data_list,style_list,label_list,filename,annotate=False):
     fig, ax = plt.subplots()
     for data, style, label in zip(data_list, style_list, label_list):
-        ax = data.plot(ax=ax, x="Year", y="Number", label = label,
+        data_good = data[~data['Citation'].isin(flag_list)]
+        data_flagged = data[data['Citation'].isin(flag_list)]
+        ax = data_good.plot(ax=ax, x="Year", y="Number", label = label,
                 kind="scatter", logy=False, s=50, **style);
+        if len(data_flagged)>0:
+           ax = data_flagged.plot(ax = ax, x="Year", y="Number",
+                    kind="scatter", logy=False, s=50, marker=flagged_marker,
+                    **style); 
         if annotate:
             for index, row in data.iterrows():
                 ax.annotate(row["Place"], (row["Year"],row["Number"]),xytext=(5,5), textcoords='offset points', **style)
@@ -75,4 +93,6 @@ plot_single(supercond_data,supercond_style,"Superconducting, number of entangled
 plot_single(neutrals_data,rydberg_style,"Neutrals, number of entangled qubits","entanglement_size/plots/neutrals.png")
 plot_single(photon_data,photon_style,"Photons, number of entangled qubits","entanglement_size/plots/photons.png")
 plot_single(multi_dof_photon_data,multi_dof_photon_style,"Multi-DOF photons, number of entangled qubits","entanglement_size/plots/multi_dof_photons.png")
+
+
 
