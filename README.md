@@ -20,3 +20,13 @@ Examples:
 
 ![](entanglement_fidelities/plots/ions_vs_supercond.png)
 
+## Number of genuinely entangled qubits
+
+Main page: [entanglement size](entanglement_size/summary.md).
+
+Examples:
+
+
+![](entanglement_size/plots/combined.png)
+![](entanglement_size/plots/photons.png)
+
