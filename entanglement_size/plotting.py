@@ -17,8 +17,8 @@ x_min = 1998
 offset = 2
 
 # Flag controversial data
-#flag_list = ['Mooney2021']
-flag_list = []
+flag_list = ['Mooney2021']
+#flag_list = []
 flagged_marker = r'$?$'
 
 
