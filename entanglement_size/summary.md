@@ -5,7 +5,7 @@ The largest measured GHZ states accross different platforms.
 
 ![](plots/combined.png)
 
-
+[Question mark](#Why-does-a-datapoint-have-a-question-mark?)
 
 ## Individual platforms
 
@@ -68,6 +68,9 @@ All platforms individually, annotated with the place where the result was obtain
 
 
 ## FAQ
+### Why does a datapoint have a question mark?
+The preprint in question, Moore2021, claims to have measured the largest GHZ state observed to date. The claim relies on a new method of measurement result post-processing (referred to as QREM in the paper). Therefore, it is reasonable for this technique to be verified before the record is "confirmed". I hope to add the point once the paper passes peer-review. The other best result, Pogorelov2021, is also a preprint, but uses a well-established and simple read-out technique. Therefore, it is included without the question mark.
+
 ### Which data points are shown in these plots?
 
 The plots show the largest numbers of genuinely entangled qubits across different platforms.
