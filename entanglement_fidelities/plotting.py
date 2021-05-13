@@ -12,7 +12,7 @@ silicon_data = pd.read_csv("entanglement_fidelities/data/silicon.csv")
 color_list = plt.rcParams['axes.prop_cycle'].by_key()['color']
 y_max = 1
 y_min=1e-4
-x_max = 2022
+x_max = 2024
 x_min = 1998
 offset = 2
 
@@ -65,8 +65,8 @@ style_list = [ion_style, supercond_style, rydberg_style, diamond_style, silicon_
 label_list = ["Trapped ions", "Superconducting", "Rydberg atoms", "Spins in diamond", "Qubits in silicon"]
 
 
-plot_combined(data_list, style_list,label_list,"plots/combined.png")
-plot_combined(data_list[0:2], style_list[0:2],label_list[0:2],"plots/ions_vs_supercond.png",annotate=True)
+plot_combined(data_list, style_list,label_list,"entanglement_fidelities/plots/combined.png")
+plot_combined(data_list[0:2], style_list[0:2],label_list[0:2],"entanglement_fidelities/plots/ions_vs_supercond.png",annotate=True)
 
 plot_single(ion_data,ion_style,"Trapped ions 2-qubit entanglement errors","entanglement_fidelities/plots/ions.png")
 plot_single(supercond_data,supercond_style,"Superconducting 2-qubit entanglement errors","entanglement_fidelities/plots/superconducting.png")

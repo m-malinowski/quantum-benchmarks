@@ -24,6 +24,7 @@ All platforms individually, annotated with the place where the result was obtain
 | 2008 | 0.007  | 0.001       | Innsbruck | Bell   | Benhelm2008    | 
 | 2016 | 0.0008 | 0.0004      | NIST      | Bell   | Gaebler2016    | 
 | 2016 | 0.001  | 0.001       | Oxford    | Bell   | Ballance2016   |
+| 2021 | 0.0006 | 0.0003      | GTRI      | Bell   | Clark2021      |
 
 ### Superconducintg qubits
 ![](plots/superconducting.png)
