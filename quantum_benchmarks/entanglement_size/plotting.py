@@ -4,11 +4,11 @@ import pandas as pd
 import matplotlib as mpl
 mpl.rcParams['savefig.dpi'] = 200
 plt.close("all")
-ion_data = pd.read_csv("entanglement_size/data/trapped_ions.csv")
-supercond_data = pd.read_csv("entanglement_size/data/superconducting.csv")
-neutrals_data = pd.read_csv("entanglement_size/data/neutrals.csv")
-photon_data = pd.read_csv("entanglement_size/data/photons.csv")
-multi_dof_photon_data = pd.read_csv("entanglement_size/data/multi_dof_photons.csv")
+ion_data = pd.read_csv("quantum_benchmarks/entanglement_size/data/trapped_ions.csv")
+supercond_data = pd.read_csv("quantum_benchmarks/entanglement_size/data/superconducting.csv")
+neutrals_data = pd.read_csv("quantum_benchmarks/entanglement_size/data/neutrals.csv")
+photon_data = pd.read_csv("quantum_benchmarks/entanglement_size/data/photons.csv")
+multi_dof_photon_data = pd.read_csv("quantum_benchmarks/entanglement_size/data/multi_dof_photons.csv")
 color_list = plt.rcParams['axes.prop_cycle'].by_key()['color']
 y_max = 30
 y_min= 1
@@ -31,7 +31,7 @@ photon_style = {"color":color_list[5]}
 multi_dof_photon_style = {"color":color_list[6]}
 
 
-def plot_single(data,style,title,filename,annotate=True):
+def plot_single(data,style,title,filename,annotate=True, show=False):
     data_good = data[~data['Citation'].isin(flag_list)]
     data_flagged = data[data['Citation'].isin(flag_list)]
     ax = data_good.plot(x="Year", y="Number",
@@ -50,10 +50,11 @@ def plot_single(data,style,title,filename,annotate=True):
             ax.annotate(row["Place"], (row["Year"],row["Number"]),xytext=(5,5), textcoords='offset points', **style)
     plot = ax.get_figure()
     plot.savefig(filename, bbox_inches='tight')
-    plt.show()
-    plt.close("all")
+    if show:
+        plt.show()
+        plt.close("all")
 
-def plot_combined(data_list,style_list,label_list,filename,annotate=False):
+def plot_combined(data_list,style_list,label_list,filename,annotate=False, show=False):
     fig, ax = plt.subplots()
     for data, style, label in zip(data_list, style_list, label_list):
         data_good = data[~data['Citation'].isin(flag_list)]
@@ -75,8 +76,9 @@ def plot_combined(data_list,style_list,label_list,filename,annotate=False):
 
     plot = ax.get_figure()
     plot.savefig(filename, bbox_inches='tight')
-    plt.show()
-    plt.close("all")
+    if show:
+        plt.show()
+        plt.close("all")
 
 
 
@@ -85,14 +87,14 @@ style_list = [ion_style, supercond_style, rydberg_style, photon_style, multi_dof
 label_list = ["Trapped ions", "Superconducting", "Neutral atoms", "Photons", "Multi-DOF photons"]
 
 
-plot_combined(data_list, style_list,label_list,"entanglement_size/plots/combined.png")
+plot_combined(data_list, style_list,label_list,"quantum_benchmarks/entanglement_size/plots/combined.png", show = True)
 #plot_combined(data_list[0:2], style_list[0:2],label_list[0:2],"plots/ions_vs_supercond.png",annotate=True)
 
-plot_single(ion_data,ion_style,"Trapped ions, number of entangled qubits","entanglement_size/plots/ions.png")
-plot_single(supercond_data,supercond_style,"Superconducting, number of entangled qubits","entanglement_size/plots/superconducting.png")
-plot_single(neutrals_data,rydberg_style,"Neutrals, number of entangled qubits","entanglement_size/plots/neutrals.png")
-plot_single(photon_data,photon_style,"Photons, number of entangled qubits","entanglement_size/plots/photons.png")
-plot_single(multi_dof_photon_data,multi_dof_photon_style,"Multi-DOF photons, number of entangled qubits","entanglement_size/plots/multi_dof_photons.png")
+plot_single(ion_data,ion_style,"Trapped ions, number of entangled qubits","quantum_benchmarks/entanglement_size/plots/ions.png")
+plot_single(supercond_data,supercond_style,"Superconducting, number of entangled qubits","quantum_benchmarks/entanglement_size/plots/superconducting.png")
+plot_single(neutrals_data,rydberg_style,"Neutrals, number of entangled qubits","quantum_benchmarks/entanglement_size/plots/neutrals.png")
+plot_single(photon_data,photon_style,"Photons, number of entangled qubits","quantum_benchmarks/entanglement_size/plots/photons.png")
+plot_single(multi_dof_photon_data,multi_dof_photon_style,"Multi-DOF photons, number of entangled qubits","quantum_benchmarks/entanglement_size/plots/multi_dof_photons.png")
 
 
 
