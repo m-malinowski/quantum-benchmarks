@@ -8,7 +8,7 @@ It is very important to me for the information presented here to be
 - Error-free
 - Uncontroversial
 
-I welcome contributions from everybody, which are particularly essential for the database to stay up-to-date. If you spot an error (or a controversial statement), or would like to propose a way the database could be more useful and clear (including new benchmarks), please raise an issue on github or email me at maciejm@phys.ethz.ch.
+I welcome contributions from everybody, which are particularly essential for the database to stay up-to-date. If you spot an error (or a controversial statement), or would like to propose a way the database could be more useful and clear (including new benchmarks), please raise an issue on github.
 
 ## 2-qubit entanglement fidelities
 Main page: [entanglement fidelities](entanglement_fidelities/summary.md).

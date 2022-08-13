@@ -1,6 +1,0 @@
-Year,Error,Uncertainty,Place,Method,Citation
-2006,0.24,0.01,UCSB,Tomography,Steffen2006
-2009,0.09,0.03,Yale,Tomography,Dicarlo2009
-2012,0.0255,0.0001,IBM,Tomography,Chow2012
-2014,0.0056,0.0005,UCSB,Benchmarking,Barends2014
-2020,0.0028,0.0032,MIT,Benchmarking,Kraergaard2020

@@ -4,11 +4,11 @@ import pandas as pd
 import matplotlib as mpl
 mpl.rcParams['savefig.dpi'] = 200
 plt.close("all")
-ion_data = pd.read_csv("entanglement_fidelities/data/trapped_ions.csv")
-supercond_data = pd.read_csv("entanglement_fidelities/data/superconducting.csv")
-rydberg_data = pd.read_csv("entanglement_fidelities/data/rydbergs.csv")
-diamond_data = pd.read_csv("entanglement_fidelities/data/diamond.csv")
-silicon_data = pd.read_csv("entanglement_fidelities/data/silicon.csv")
+ion_data = pd.read_csv("quantum_benchmarks/entanglement_fidelities/data/trapped_ions.csv")
+supercond_data = pd.read_csv("quantum_benchmarks/entanglement_fidelities/data/superconducting.csv")
+rydberg_data = pd.read_csv("quantum_benchmarks/entanglement_fidelities/data/rydbergs.csv")
+diamond_data = pd.read_csv("quantum_benchmarks/entanglement_fidelities/data/diamond.csv")
+silicon_data = pd.read_csv("quantum_benchmarks/entanglement_fidelities/data/silicon.csv")
 color_list = plt.rcParams['axes.prop_cycle'].by_key()['color']
 y_max = 1
 y_min=1e-4
@@ -24,7 +24,7 @@ diamond_style = {"color":color_list[3]}
 silicon_style = {"color":color_list[4]}
 
 
-def plot_single(data,style,title,filename,annotate=True):
+def plot_single(data,style,title,filename,annotate=True, show=False):
     ax = data.plot(x="Year", y="Error", yerr = "Uncertainty",
                         kind="scatter", logy=True, s=50, **style);
     ax.set_ylim(y_min,1)
@@ -36,10 +36,11 @@ def plot_single(data,style,title,filename,annotate=True):
             ax.annotate(row["Place"], (row["Year"],row["Error"]),xytext=(5,5), textcoords='offset points', **style)
     plot = ax.get_figure()
     plot.savefig(filename, bbox_inches='tight')
-    plt.show()
-    plt.close("all")
+    if show:
+        plt.show()
+        plt.close("all")
 
-def plot_combined(data_list,style_list,label_list,filename,annotate=False):
+def plot_combined(data_list,style_list,label_list,filename,annotate=False, show = False):
     fig, ax = plt.subplots()
     for data, style, label in zip(data_list, style_list, label_list):
         ax = data.plot(ax=ax, x="Year", y="Error", yerr = "Uncertainty", label = label,
@@ -55,8 +56,9 @@ def plot_combined(data_list,style_list,label_list,filename,annotate=False):
 
     plot = ax.get_figure()
     plot.savefig(filename, bbox_inches='tight')
-    plt.show()
-    plt.close("all")
+    if show:
+        plt.show()
+        plt.close("all")
 
 
 
@@ -65,12 +67,12 @@ style_list = [ion_style, supercond_style, rydberg_style, diamond_style, silicon_
 label_list = ["Trapped ions", "Superconducting", "Rydberg atoms", "Spins in diamond", "Qubits in silicon"]
 
 
-plot_combined(data_list, style_list,label_list,"entanglement_fidelities/plots/combined.png")
-plot_combined(data_list[0:2], style_list[0:2],label_list[0:2],"entanglement_fidelities/plots/ions_vs_supercond.png",annotate=True)
+plot_combined(data_list, style_list,label_list,"quantum_benchmarks/entanglement_fidelities/plots/combined.png", show = True)
+plot_combined(data_list[0:2], style_list[0:2],label_list[0:2],"quantum_benchmarks/entanglement_fidelities/plots/ions_vs_supercond.png",annotate=True, show=True)
 
-plot_single(ion_data,ion_style,"Trapped ions 2-qubit entanglement errors","entanglement_fidelities/plots/ions.png")
-plot_single(supercond_data,supercond_style,"Superconducting 2-qubit entanglement errors","entanglement_fidelities/plots/superconducting.png")
-plot_single(rydberg_data,rydberg_style,"Rydberg 2-qubit entanglement errors","entanglement_fidelities/plots/rydbergs.png")
-plot_single(diamond_data,diamond_style,"Spins in diamond 2-qubit entanglement errors","entanglement_fidelities/plots/diamond.png")
-plot_single(silicon_data,silicon_style,"In-silicon 2-qubit entanglement errors","entanglement_fidelities/plots/silicon.png")
+plot_single(ion_data,ion_style,"Trapped ions 2-qubit entanglement errors","quantum_benchmarks/entanglement_fidelities/plots/ions.png")
+plot_single(supercond_data,supercond_style,"Superconducting 2-qubit entanglement errors","quantum_benchmarks/entanglement_fidelities/plots/superconducting.png")
+plot_single(rydberg_data,rydberg_style,"Rydberg 2-qubit entanglement errors","quantum_benchmarks/entanglement_fidelities/plots/rydbergs.png")
+plot_single(diamond_data,diamond_style,"Spins in diamond 2-qubit entanglement errors","quantum_benchmarks/entanglement_fidelities/plots/diamond.png")
+plot_single(silicon_data,silicon_style,"In-silicon 2-qubit entanglement errors","quantum_benchmarks/entanglement_fidelities/plots/silicon.png")
 
